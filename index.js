@@ -1,13 +1,13 @@
 const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
-
+require("dotenv").config();
 
 const taskRoutes = require("./routes/task.routes");
 
 const app = express();
 const PORT = 8082;
-const DB_URI = "mongodb+srv://rahuldev6258:Ufm16SaPQtJbj5gb@merntaskmanager.1h7iq.mongodb.net/";
+const DB_URI =process.env.MONGO_URI;
 
 mongoose
   .connect(DB_URI, {
