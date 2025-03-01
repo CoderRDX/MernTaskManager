@@ -9,6 +9,11 @@ const app = express();
 const PORT = 8082;
 const DB_URI =process.env.MONGO_URI;
 
+if (!DB_URI) {
+  console.error("Error: MONGO_URI is not defined!");
+  process.exit(1); // Stop the app if no MongoDB URL is found
+}
+
 mongoose
   .connect(DB_URI, {
     useNewUrlParser: true,
